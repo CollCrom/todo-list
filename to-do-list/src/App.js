@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Show from './Show.js';
+import Form from './Form.js';
+
 
 class App extends Component {
 
@@ -29,7 +31,8 @@ pushToList = (item) => {
   render() {
     return (
       <div>
-      <Show list={this.state.list} cutIt={this.cutIt} pushToList={this.pushToList} />
+      <Show list={this.state.list} cutIt={this.cutIt} />
+      <Form pushToList={this.pushToList} />
       </div>
     );
   }
