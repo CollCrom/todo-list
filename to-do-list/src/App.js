@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Show from './Show.js';
 
 class App extends Component {
+
+  constructor () {
+
+    super();
+    this.state = {
+list: ["This is to test the list", "I'm not going to do titles", "add to it with add button", "delete by clicking on the div", "you\'ll figure it out"],
+    }
+  }
+
+
+cutIt = (event) => {
+  const state = this.state
+  state.list.splice(event.target.id, 1)
+  this.setState(state);
+}
+
+
+pushToList = (item) => {
+  const state = this.state
+  state.list.push(item);
+  this.setState(state);
+}
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+      <Show list={this.state.list} cutIt={this.cutIt} pushToList={this.pushToList} />
       </div>
     );
   }
